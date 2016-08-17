@@ -301,6 +301,9 @@ impl<T, E> Inner<T, E> {
                 cb_consumer = consumer;
                 cb_cancellation = cancellation;
             }
+            Cancelled => {
+                return Err(res);
+            }
             _ => panic!("unexpected state"),
         }
 
